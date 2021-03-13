@@ -5,7 +5,6 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.OneToOne;
 
-import org.springframework.beans.factory.annotation.Autowired;
 
 @Entity
 public class Customer {
@@ -60,18 +59,5 @@ public class Customer {
 		String text="id:"+id +" name:"+name+" AccountID:"+account.getId()+" AccountBalance:"+account.getBalance()+"AccountCreated:"+account.getCreated();
 	    return text;
 	}
-	
-
-	@Override
-	public boolean equals(Object obj) {
-		if (this == obj)
-			return true;
-		 if(obj==null || !(obj instanceof Customer)) {
-			 return false;
-		 }
-		 Customer that=(Customer)obj;
-		return this.id==that.id;
-	}
-	
 	
 }
