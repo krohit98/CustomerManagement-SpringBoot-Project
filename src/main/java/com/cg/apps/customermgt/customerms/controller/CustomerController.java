@@ -37,9 +37,12 @@ public class CustomerController {
 	}
 	
 	@PutMapping("/addamount")
-	public void addAmount(@RequestBody AddAmountRequest requestData) {
+	public CustomerDetails addAmount(@RequestBody AddAmountRequest requestData) {
+	
+		Customer customer = service.addAmount(requestData.getCustomerId(), requestData.getAmount());
+		CustomerDetails details = util.customerDetailsById(customer);
+		return details;
 		
-		service.addAmount(requestData.getCustomerId(), requestData.getAmount());
 	}
 	
 	@GetMapping(value = "/getitemsbought/{id}")
