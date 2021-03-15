@@ -1,5 +1,6 @@
 package com.cg.apps.customermgt.customerms.dao;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
 import com.cg.apps.customermgt.customerms.entities.Account;
@@ -7,6 +8,7 @@ import com.cg.apps.customermgt.customerms.entities.Customer;
 
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
+import javax.transaction.Transactional;
 
 @Repository
 public class CustomerDAOImpl implements ICustomerDAO {

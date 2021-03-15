@@ -1,23 +1,24 @@
 package com.cg.apps.customermgt.itemms.entities;
 
 import java.time.LocalDateTime;
-import java.util.Random;
 
-import javax.annotation.PostConstruct;
 import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.OneToOne;
 
-import org.hibernate.annotations.GenericGenerator;
+import com.cg.apps.customermgt.customerms.entities.Customer;
 
 @Entity
 public class Item {
 
 	@Id
-	String id;
-	double price;
-	String description;
-	LocalDateTime addedDate;
+	private String id;
+	private double price;
+	private String description;
+	private LocalDateTime addedDate;
+	
+	@OneToOne
+	private Customer boughtBy;
 	
 	public Item() {}
 	
@@ -58,6 +59,14 @@ public class Item {
 
 	public void setAddedDate(LocalDateTime addedDate) {
 		this.addedDate = addedDate;
+	}
+	
+	public Customer getBoughtBy() {
+		return boughtBy;
+	}
+	
+	public void setBoughtBy(Customer boughtBy) {
+		this.boughtBy = boughtBy;
 	}
 	
 	@Override

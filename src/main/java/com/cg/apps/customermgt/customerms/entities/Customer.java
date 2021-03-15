@@ -1,9 +1,16 @@
 package com.cg.apps.customermgt.customerms.entities;
 
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
+
+import java.util.HashSet;
+import java.util.Set;
+
+import com.cg.apps.customermgt.itemms.entities.Item;
 
 
 @Entity
@@ -13,17 +20,18 @@ public class Customer {
 	@Id
 	private Long id;
 	private String name;
-	
 	@OneToOne
 	private Account account;
+	@OneToMany(fetch = FetchType.EAGER)
+	private Set<Item> boughtItems;
 	
 	
 	public Customer() {}
 	
 	public Customer(String name, Account account) {
-
 		this.name=name;
 		this.account=account;
+		this.boughtItems = new HashSet<Item>();
 	}
 	
 	//setter methods
@@ -39,6 +47,10 @@ public class Customer {
 		this.account=account;
 	}
 	
+	public void setBoughtItems(Set<Item> boughtItems) {
+		this.boughtItems=boughtItems;
+	}
+	
 	
 	//getter methods
 	public Long getId() {
@@ -51,6 +63,10 @@ public class Customer {
 	
 	public Account getAccount() {
 		return account;
+	}
+	
+	public Set<Item> getBoughtItems() {
+		return boughtItems;
 	}
 	
 	

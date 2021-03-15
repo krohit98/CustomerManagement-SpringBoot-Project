@@ -6,6 +6,9 @@ import org.springframework.transaction.annotation.Transactional;
 
 import com.cg.apps.customermgt.customerms.dao.ICustomerDAO;
 import com.cg.apps.customermgt.customerms.entities.*;
+import com.cg.apps.customermgt.itemms.entities.*;
+
+import java.util.Set;
 
 @Service
 public class CustomerServiceImpl implements ICustomerService {
@@ -35,5 +38,12 @@ public class CustomerServiceImpl implements ICustomerService {
 		customer.getAccount().setBalance(amount);
 		dao.update(customer);
 		return customer;
+	}
+	
+	@Override
+	public Set<Item> itemsBoughtByCustomer(Long customerId){
+		Customer customer  = dao.findByID(customerId);
+		Set<Item> boughtItems = customer.getBoughtItems();
+		return boughtItems;
 	}
 }
