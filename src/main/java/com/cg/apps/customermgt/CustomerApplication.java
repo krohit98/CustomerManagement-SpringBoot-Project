@@ -13,9 +13,9 @@ public class CustomerApplication {
 
 	public static void main(String args[]) {
 		ConfigurableApplicationContext context=SpringApplication.run(CustomerApplication.class, args);
-		//CustomerUI app1 = context.getBean(CustomerUI.class);
+		CustomerUI app1 = context.getBean(CustomerUI.class);
 		ItemUI app2 = context.getBean(ItemUI.class);
-		//app1.start();
+		app1.start();
 		app2.start();
 	}
 }

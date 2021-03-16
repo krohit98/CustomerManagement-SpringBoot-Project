@@ -28,7 +28,7 @@ public class Item {
 		this.description = description;
 		this.addedDate = addedDate;
 	}
-	
+
 	public String getId() {
 		return id;
 	}

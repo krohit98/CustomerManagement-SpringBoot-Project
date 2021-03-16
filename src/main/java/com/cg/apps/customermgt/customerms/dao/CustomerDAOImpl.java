@@ -1,3 +1,4 @@
+/*
 package com.cg.apps.customermgt.customerms.dao;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -41,3 +42,4 @@ public class CustomerDAOImpl implements ICustomerDAO {
 		return customer;
     }
 }
+*/

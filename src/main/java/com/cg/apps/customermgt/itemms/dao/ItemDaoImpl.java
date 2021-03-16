@@ -1,3 +1,4 @@
+/*
 package com.cg.apps.customermgt.itemms.dao;
 
 import org.springframework.stereotype.Repository;
@@ -34,3 +35,4 @@ public class ItemDaoImpl implements IItemDao {
 		return item;
 	}
 }
+*/
